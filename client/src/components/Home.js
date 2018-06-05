@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className>
       <h1>SkinCare Rituals</h1>
-      <img src={photo} width="50%" height="50%"/>
+      <img src={photo} width="50%" height="50%" alt="home-image"/>
       <h2>Your one stop for skin care treatments to rejuvenate your skin</h2>
     </div>
   );

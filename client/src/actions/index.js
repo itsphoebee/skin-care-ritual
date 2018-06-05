@@ -1,6 +1,8 @@
 export function loadRituals() {
   return (dispatch) => {
-    return fetch(`http://localhost:3001/rituals`)
+    return fetch(`http://localhost:3001/rituals`, {
+      method: 'GET'
+    })
     .then(response => response.json())
     .then(rituals => {
       dispatch({

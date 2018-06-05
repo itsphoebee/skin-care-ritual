@@ -8,4 +8,5 @@ class RitualsController < ApplicationController
     @ritual = Ritual.find(params[:id])
     render json: @ritual
   end
+
 end

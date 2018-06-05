@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadRituals } from '../actions';
-
+import RitualsList from '../components/RitualsList';
+import RitualsShow from './RitualsShow';
 
 class RitualsPage extends Component {
 
@@ -12,16 +13,16 @@ class RitualsPage extends Component {
 
   render(){
     const { rituals, match } = this.props;
-  }
 
-  return (
-    <div>
-      <RitualsList rituals={rituals} />
-      <Switch>
-        <Route path={`${match.url}/:ritualId`} component={RitualsShow} />
-      </Switch>
-    </div>
-  )
+    return (
+      <div>
+        <Switch>
+          <RitualsList rituals={rituals} />
+          <Route path={`${match.url}/:ritualId`} component={RitualsShow} />
+        </Switch>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
