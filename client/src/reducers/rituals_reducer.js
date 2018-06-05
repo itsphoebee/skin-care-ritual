@@ -1,6 +1,4 @@
-export default (state = {
-  rituals: [],
-  action) => {
+export default (state = {rituals: []}, action) => {
 
   switch (action.type) {
     case 'LOAD_ALL_RITUALS':
