@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import RitualsPage from './containers/RitualsPage';
+import RitualShow from './containers/RitualShow';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/rituals' component={RitualsPage} />
+            <Route path='/rituals/:ritualId' component={RitualShow}/>
           </Switch>
         </div>
       </Router>

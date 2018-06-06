@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Switch  } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loadRituals } from '../actions';
+import { loadRituals } from '../actions/index';
 import RitualsList from '../components/RitualsList';
-import RitualsShow from './RitualsShow';
 
 class RitualsPage extends Component {
 
@@ -12,14 +10,11 @@ class RitualsPage extends Component {
   }
 
   render(){
-    const { rituals, match } = this.props;
+    const { rituals } = this.props;
 
     return (
       <div>
-        <Switch>
-          <RitualsList rituals={rituals} />
-          <Route path={`${match.url}/:ritualId`} component={RitualsShow} />
-        </Switch>
+        <RitualsList rituals={rituals} />
       </div>
     )
   }
