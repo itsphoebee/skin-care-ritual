@@ -6,6 +6,20 @@ const getRituals = rituals => {
   }
 }
 
+export const likeRitual = ritualId => {
+  return {
+    type: 'LIKE_RITUAL',
+    ritualId
+  }
+}
+
+export const dislikeRitual = ritualId => {
+  return {
+    type: 'DISLIKE_RITUAL',
+    ritualId
+  }
+}
+
 // Async Actions
 export function loadRituals() {
   return (dispatch) => {

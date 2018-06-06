@@ -1,14 +1,22 @@
 import React from 'react';
+import { likeRitual } from '../actions/index';
+import { Button } from 'react-bootstrap';
 
 const Ritual = ({ ritual }) => {
+
   const renderItemList = ritual.items.map(item =>
-    <li key={item.id}>{item.name} - <strong>{item.brand}</strong> - ${item.price}</li>
+    <li key={item.id}>{item.name} - <strong>{item.brand}</strong> - ${item.price}
+      <p>{item.description}</p>
+      <img src={item.image} width="25%" alt={item.name} />
+    </li>
   );
 
   return (
     <div>
       <h1>{ritual.name}</h1>
-      <h3>{ritual.category}</h3>
+      <h3>Likes: {ritual.likes}</h3>
+      <Button>Like</Button> <Button>Dislike</Button>
+      <h3>Category: {ritual.category}</h3>
       <p>{ritual.description}</p>
       <h4>Products List:</h4>
       <ul>
