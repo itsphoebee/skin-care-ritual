@@ -10,7 +10,7 @@ const Ritual = ({ ritual }) => {
       <h1>{ritual.name}</h1>
       <h3>{ritual.category}</h3>
       <p>{ritual.description}</p>
-      <h4>Products Used:</h4>
+      <h4>Products List:</h4>
       <ul>
         {renderItemList}
       </ul>
