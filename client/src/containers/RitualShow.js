@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Ritual from '../components/RitualsList';
+import Ritual from '../components/Ritual';
 
 class RitualShow extends Component {
-  render(){
-    const { ritual } = this.props;
+  render() {
     return(
       <div>
-        <Ritual ritual={ritual} />
+        <Ritual ritual={this.props.ritual} />
       </div>
     )
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return ({
-    ritual: state.rituals.rituals.find(r => r.id === +ownProps.match.params.ritualId)
-  })
-}
+  
+  const ritual = state.rituals.rituals.find(r => r.id === +ownProps.match.params.ritualId)
+
+  if (ritual) {
+    return { ritual }
+  } else {
+    return { ritual: {} }
+  }
+};
 
 export default connect(mapStateToProps)(RitualShow);
