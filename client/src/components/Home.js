@@ -1,7 +1,6 @@
 import React from 'react';
 import photo from '../adult-hand-cream-hands-1029896.jpg'
 
-
 const Home = () => {
   return (
     <div>
