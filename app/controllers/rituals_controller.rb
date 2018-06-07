@@ -9,4 +9,19 @@ class RitualsController < ApplicationController
     render json: @ritual
   end
 
+  def edit
+  end
+
+  def update
+    @ritual = Ritual.find(params[:id])
+    if @ritual.update(ritual_params)
+      render json: @ritual
+    end
+  end
+
+  private
+
+  def ritual_params
+    params.require(:ritual).permit(:name, :category, :description, :likes, items:[])
+  end
 end

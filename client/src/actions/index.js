@@ -6,17 +6,17 @@ const getRituals = rituals => {
   }
 }
 
-export const likeRitual = ritualId => {
+export const likeRitual = ritual => {
   return {
     type: 'LIKE_RITUAL',
-    ritualId
+    ritual
   }
 }
 
-export const dislikeRitual = ritualId => {
+export const dislikeRitual = ritual => {
   return {
     type: 'DISLIKE_RITUAL',
-    ritualId
+    ritual
   }
 }
 
@@ -29,6 +29,39 @@ export function loadRituals() {
     .then(response => response.json())
     .then(rituals => {
       dispatch(getRituals(rituals))
+    })
+  }
+}
+
+export function addLike(ritual){
+  return (dispatch) => {
+    return fetch(`http://localhost:3001/rituals/${ritual.id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(ritual)
+    })
+    .then(response => response.json())
+    .then(ritual => {
+      dispatch(likeRitual(ritual))
+    })
+  }
+}
+
+export function addDislike(ritual){
+  debugger
+  return (dispatch) => {
+    return fetch(`http://localhost:3001/rituals/${ritual.id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(ritual)
+    })
+    .then(response => response.json())
+    .then(ritual => {
+      dispatch(dislikeRitual(ritual))
     })
   }
 }

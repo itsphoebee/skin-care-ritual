@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-const Ritual = ({ ritual, dislikeRitual, likeRitual }) => {
+const Ritual = ({ ritual, addLike, addDislike }) => {
+
   const renderItemList = ritual.items.map(item =>
     <li key={item.id}>{item.name} - <strong>{item.brand}</strong> - ${item.price}
       <p>{item.description}</p>
@@ -15,13 +16,13 @@ const Ritual = ({ ritual, dislikeRitual, likeRitual }) => {
       <h3>Likes: {ritual.likes}</h3>
       <Button
         className="btn btn-outline-danger"
-        onClick={ () => likeRitual(ritual.id) }
+        onClick={ () => addLike(ritual) }
       >
       Like
       </Button>
       <Button
         className="btn btn-outline-danger"
-        onClick={ () => dislikeRitual(ritual.id) }
+        onClick={ () => addDislike(ritual) }
       >
       Dislike
       </Button>
