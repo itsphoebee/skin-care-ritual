@@ -50,7 +50,6 @@ export function addLike(ritual){
 }
 
 export function addDislike(ritual){
-  debugger
   return (dispatch) => {
     return fetch(`http://localhost:3001/rituals/${ritual.id}`, {
       method: "PUT",

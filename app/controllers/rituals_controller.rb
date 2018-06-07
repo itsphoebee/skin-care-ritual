@@ -22,6 +22,6 @@ class RitualsController < ApplicationController
   private
 
   def ritual_params
-    params.require(:ritual).permit(:name, :category, :description, :likes, items:[])
+    params.require(:ritual).permit(:id, :name, :category, :description, :likes, items:[])
   end
 end

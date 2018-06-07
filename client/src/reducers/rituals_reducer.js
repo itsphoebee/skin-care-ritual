@@ -5,18 +5,26 @@ export default (state = {rituals: []}, action) => {
       return Object.assign({}, state, {rituals: action.rituals})
 
     case 'LIKE_RITUAL':
-      let likedRitual = state.rituals.filter(ritual =>
-        ritual.id === action.ritual.id
-      )
-      likedRitual[0].likes += 1
-      return Object.assign({}, state, {ritual: likedRitual})
+      let likedRituals = state.rituals.map(ritual => {
+        if (ritual.id === action.ritual.id) {
+          ritual.likes += 1
+          return ritual
+        } else {
+          return ritual
+        }
+      })
+      return Object.assign({}, {rituals: likedRituals})
 
     case 'DISLIKE_RITUAL':
-      let dislikedRitual = state.rituals.filter(ritual =>
-        ritual.id === action.ritual.id
-      )
-      dislikedRitual[0].likes -= 1
-        return Object.assign({}, state, {ritual: dislikedRitual})
+      let newRituals = state.rituals.map(ritual => {
+        if (ritual.id === action.ritual.id) {
+          ritual.likes -= 1
+          return ritual
+        } else {
+          return ritual
+        }
+      })
+      return Object.assign({}, {rituals: newRituals})
 
     default:
       return state;

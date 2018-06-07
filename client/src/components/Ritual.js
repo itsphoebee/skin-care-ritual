@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 const Ritual = ({ ritual, addLike, addDislike }) => {
-
   const renderItemList = ritual.items.map(item =>
     <li key={item.id}>{item.name} - <strong>{item.brand}</strong> - ${item.price}
       <p>{item.description}</p>

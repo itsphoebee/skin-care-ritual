@@ -5,7 +5,6 @@ import { addDislike, addLike } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 class RitualShow extends Component {
-
   render() {
     const {ritual, addDislike, addLike} = this.props
     return(
@@ -17,7 +16,6 @@ class RitualShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const ritual = state.rituals.rituals.find(r => r.id === +ownProps.match.params.ritualId)
   if (ritual) {
     return { ritual }
