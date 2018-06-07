@@ -6,6 +6,19 @@ ul {
     text-align: center;
     list-style-position: inside;
 }
+
+.ritualsList {
+    float: left;
+    width: 25%;
+}
+
+/* Clear floats after the columns */
+.ritualsList:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

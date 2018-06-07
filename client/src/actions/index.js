@@ -41,11 +41,11 @@ export function addLike(ritual){
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(ritual)
+      body: JSON.stringify(newRitual)
     })
     .then(response => response.json())
     .then(ritual => {
-      dispatch(likeRitual(ritual))
+      dispatch(likeRitual(newRitual))
     })
   }
 }
@@ -62,7 +62,7 @@ export function addDislike(ritual){
     })
     .then(response => response.json())
     .then(ritual => {
-      dispatch(dislikeRitual(ritual))
+      dispatch(dislikeRitual(newRitual))
     })
   }
 }

@@ -32,20 +32,26 @@ class RitualsPage extends Component {
       }
     )
 
+    let sortedRituals = filteredRituals.sort(function(a,b) {
+      return b.likes - a.likes
+    })
+
     return (
       <div>
-      <div>
-      <input
-        type= "text"
-        placeholder="Search"
-        value={this.state.search}
-        onChange={this.updateSearch.bind(this)}
-      />
-      </div>
-      <br/>
         <Switch>
-        <Route exact path={match.url} render={() => (
-          <RitualsList rituals={filteredRituals} />
+          <Route exact path={match.url} render={() => (
+            <div>
+              <div className="search-bar">
+                <input
+                  type= "text"
+                  placeholder="Search"
+                  value={this.state.search}
+                  onChange={this.updateSearch.bind(this)}
+                />
+              </div>
+              <br/>
+              <RitualsList rituals={sortedRituals} />
+            </div>
         )}/>
           <Route path={`${match.url}/:ritualId`} component={RitualShow}/>
         </Switch>
