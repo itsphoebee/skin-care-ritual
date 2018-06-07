@@ -7,6 +7,7 @@ import RitualShow from '../containers/RitualShow';
 class RitualsPage extends Component {
 
   render(){
+
     const { match, rituals } = this.props;
     return (
       <div>

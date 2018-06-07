@@ -33,7 +33,7 @@ class App extends Component {
 
 const mapDispatchtoProps = (dispatch) => {
   return bindActionCreators({
-    loadRituals: loadRituals
+    loadRituals
   }, dispatch);
 }
 
