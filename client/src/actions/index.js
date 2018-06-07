@@ -34,6 +34,7 @@ export function loadRituals() {
 }
 
 export function addLike(ritual){
+  let newRitual = Object.assign({}, ritual, ritual.likes = ritual.likes +1)
   return (dispatch) => {
     return fetch(`http://localhost:3001/rituals/${ritual.id}`, {
       method: "PUT",
@@ -50,13 +51,14 @@ export function addLike(ritual){
 }
 
 export function addDislike(ritual){
+  let newRitual = Object.assign({}, ritual, ritual.likes = ritual.likes -1)
   return (dispatch) => {
     return fetch(`http://localhost:3001/rituals/${ritual.id}`, {
       method: "PUT",
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(ritual)
+      body: JSON.stringify(newRitual)
     })
     .then(response => response.json())
     .then(ritual => {

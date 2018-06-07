@@ -7,8 +7,7 @@ export default (state = {rituals: []}, action) => {
     case 'LIKE_RITUAL':
       let likedRituals = state.rituals.map(ritual => {
         if (ritual.id === action.ritual.id) {
-          ritual.likes += 1
-          return ritual
+          return action.ritual
         } else {
           return ritual
         }
@@ -18,8 +17,7 @@ export default (state = {rituals: []}, action) => {
     case 'DISLIKE_RITUAL':
       let newRituals = state.rituals.map(ritual => {
         if (ritual.id === action.ritual.id) {
-          ritual.likes -= 1
-          return ritual
+          return action.ritual
         } else {
           return ritual
         }

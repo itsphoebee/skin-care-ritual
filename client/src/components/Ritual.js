@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const Ritual = ({ ritual, addLike, addDislike }) => {
   const renderItemList = ritual.items.map(item =>
-    <li key={item.id}>{item.name} - <strong>{item.brand}</strong> - ${item.price}
+    <li key={item.id}><strong>{item.brand}</strong> - {item.name} - ${item.price}
       <p>{item.description}</p>
       <img src={item.image} width="25%" alt={item.name} />
     </li>
