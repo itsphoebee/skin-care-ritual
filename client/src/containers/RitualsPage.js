@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { loadRituals } from '../actions/index';
 import RitualsList from '../components/RitualsList';
 import RitualShow from '../containers/RitualShow';
+import NavBar from '../components/NavBar';
 
 class RitualsPage extends Component {
   componentDidMount() {
@@ -28,7 +29,7 @@ class RitualsPage extends Component {
     const { match, rituals } = this.props;
     let filteredRituals = rituals.filter(
       (ritual) => {
-        return ritual.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        return ritual.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
       }
     )
 
@@ -38,6 +39,7 @@ class RitualsPage extends Component {
 
     return (
       <div>
+      <NavBar />
         <Switch>
           <Route exact path={match.url} render={() => (
             <div>

@@ -6,6 +6,11 @@ const Home = () => {
     <div>
       <img src={photo} width="50%" height="50%" alt="home"/>
       <h2>Your one stop for skin care treatments to rejuvenate your skin</h2>
+      <a href="/rituals">
+        <button type="button">
+          Get Started
+        </button>
+      </a>
     </div>
   );
 }
