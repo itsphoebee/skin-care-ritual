@@ -7,18 +7,24 @@ ul {
     list-style-position: inside;
 }
 
-.ritualsList {
+.ritual {
     float: left;
     width: 25%;
 }
 
 /* Clear floats after the columns */
-.ritualsList:after {
+.ritual:after {
     content: "";
     display: table;
     clear: both;
 }
 
+.default-photo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

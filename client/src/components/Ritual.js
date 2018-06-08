@@ -5,7 +5,7 @@ const Ritual = ({ ritual, addLike, addDislike }) => {
   const renderItemList = ritual.items.map(item =>
     <li key={item.id}><strong>{item.brand}</strong> - {item.name} - ${item.price}
       <p>{item.description}</p>
-      <img src={item.image} alt={item.name} />
+      <img src={item.image} width="20%" alt={item.name} />
     </li>
   );
 
