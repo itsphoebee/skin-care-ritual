@@ -4,6 +4,17 @@ class RitualsController < ApplicationController
     render json: @rituals
   end
 
+  def new
+    @ritual = Ritual.new
+  end
+
+  def create
+    @ritual = Ritual.new(ritual_params)
+    if @ritual.save
+      render json: @ritual
+    end
+  end
+
   def show
     @ritual = Ritual.find(params[:id])
     render json: @ritual
@@ -22,6 +33,6 @@ class RitualsController < ApplicationController
   private
 
   def ritual_params
-    params.require(:ritual).permit(:id, :name, :category, :description, :likes, items:[])
+    params.require(:ritual).permit(:name, :category, :description, :likes, items:[])
   end
 end

@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { loadRituals } from '../actions/index';
 import RitualsList from '../components/RitualsList';
 import RitualShow from '../containers/RitualShow';
+import RitualNew from '../containers/RitualNew';
 import NavBar from '../components/NavBar';
 
 class RitualsPage extends Component {
@@ -18,7 +19,7 @@ class RitualsPage extends Component {
     };
   }
 
-  updateSearch(event){
+  updateSearch = (event) => {
     console.log(event.target.value)
     this.setState({
       search: event.target.value
@@ -29,7 +30,7 @@ class RitualsPage extends Component {
     const { match, rituals } = this.props;
     let filteredRituals = rituals.filter(
       (ritual) => {
-        return ritual.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        return ritual.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
       }
     )
 
@@ -48,13 +49,14 @@ class RitualsPage extends Component {
                   type= "text"
                   placeholder="Search"
                   value={this.state.search}
-                  onChange={this.updateSearch.bind(this)}
+                  onChange={this.updateSearch}
                 />
               </div>
               <br/>
               <RitualsList rituals={sortedRituals} />
             </div>
         )}/>
+          <Route path={`${match.url}/new`} component={RitualNew}/>
           <Route path={`${match.url}/:ritualId`} component={RitualShow}/>
         </Switch>
       </div>
@@ -65,14 +67,14 @@ class RitualsPage extends Component {
 // provide new rituals prop to app
 const mapStateToProps = (state) => {
   return {
-    rituals: state.rituals.rituals
+    rituals: state.rituals
   };
 }
 
-const mapDispatchtoProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     loadRituals
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchtoProps)(RitualsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RitualsPage);

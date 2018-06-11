@@ -18,6 +18,12 @@ const NavBar = () => {
       </NavLink>
       <NavLink
         style={{ marginRight: '20px' }}
+        to="/rituals/new"
+      >
+        Create Ritual
+      </NavLink>
+      <NavLink
+        style={{ marginRight: '20px' }}
         to="/about"
       >
         About

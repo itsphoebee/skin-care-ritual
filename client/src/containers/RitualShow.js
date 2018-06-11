@@ -16,7 +16,7 @@ class RitualShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const ritual = state.rituals.rituals.find(r => r.id === +ownProps.match.params.ritualId)
+  const ritual = state.rituals.find(r => r.id === +ownProps.match.params.ritualId)
   if (ritual) {
     return { ritual }
   } else {

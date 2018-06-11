@@ -6,14 +6,21 @@ const getRituals = rituals => {
   }
 }
 
-export const likeRitual = ritual => {
+const addRitual = ritual => {
+  return {
+    type: 'ADD_RITUAL',
+    ritual
+  }
+}
+
+const likeRitual = ritual => {
   return {
     type: 'LIKE_RITUAL',
     ritual
   }
 }
 
-export const dislikeRitual = ritual => {
+const dislikeRitual = ritual => {
   return {
     type: 'DISLIKE_RITUAL',
     ritual
@@ -29,6 +36,22 @@ export function loadRituals() {
     .then(response => response.json())
     .then(rituals => {
       dispatch(getRituals(rituals))
+    })
+  }
+}
+
+export function createRitual(ritual) {
+  return (dispatch) => {
+    return fetch(`http://localhost:3001/rituals`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(ritual)
+    })
+    .then(response => response.json())
+    .then(ritual => {
+      dispatch(addRitual(ritual))
     })
   }
 }
