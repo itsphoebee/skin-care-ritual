@@ -6,6 +6,7 @@ import { loadRituals } from '../actions/index';
 import RitualsList from '../components/RitualsList';
 import RitualShow from '../containers/RitualShow';
 import RitualNew from '../containers/RitualNew';
+import RitualEdit from '../containers/RitualEdit';
 import NavBar from '../components/NavBar';
 
 class RitualsPage extends Component {
@@ -57,6 +58,7 @@ class RitualsPage extends Component {
             </div>
         )}/>
           <Route path={`${match.url}/new`} component={RitualNew}/>
+          <Route path={`${match.url}/:ritualId/edit`} component={RitualEdit}/>
           <Route path={`${match.url}/:ritualId`} component={RitualShow}/>
         </Switch>
       </div>

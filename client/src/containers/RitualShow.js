@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Ritual from '../components/Ritual';
-import { addDislike, addLike } from '../actions/index';
+import { addDislike, addLike, editRitual } from '../actions/index';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 class RitualShow extends Component {
   render() {
     const {ritual, addDislike, addLike} = this.props
     return(
       <div>
-        <Ritual addLike={addLike} addDislike={addDislike} ritual={ritual} />
+      <Button
+        bsStyle="primary"
+      >
+        <Link
+          key={ritual.id}
+          to={`/rituals/${ritual.id}/edit`}
+        >
+          <span className="glyphicon glyphicon-pencil"></span> Edit Ritual
+        </Link>
+      </Button>
+        <Ritual editRitual={editRitual} addLike={addLike} addDislike={addDislike} ritual={ritual} />
       </div>
     )
   }
@@ -27,7 +39,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     addLike,
-    addDislike
+    addDislike,
+    editRitual
   }, dispatch );
 }
 

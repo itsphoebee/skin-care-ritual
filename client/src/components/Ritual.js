@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, PageHeader } from 'react-bootstrap';
 
-const Ritual = ({ ritual, addLike, addDislike }) => {
+const Ritual = ({ ritual, addLike, addDislike, editRitual }) => {
   const renderItemList = ritual.items.map(item =>
     <li key={item.id}><strong>{item.brand}</strong> - {item.name} - ${item.price}
       <p>{item.description}</p>

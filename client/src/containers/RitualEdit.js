@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
-import { createRitual } from '../actions/index';
+import { editRitual } from '../actions/index';
 
-class RitualNew extends Component {
+class RitualEdit extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      name: '' ,
-      category: '' ,
-      description: '',
-      items: []
+      id: props.ritual.id,
+      name: props.ritual.name,
+      category: props.ritual.category,
+      description: props.ritual.description,
+      items: props.ritual.items
     };
   }
 
@@ -25,8 +26,9 @@ class RitualNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const { createRitual, history } = this.props;
-    createRitual(this.state, history);
+    debugger
+    const { editRitual, history } = this.props;
+    editRitual(this.state, history);
   }
 
   render(){
@@ -72,10 +74,10 @@ class RitualNew extends Component {
             <br></br>
             <br></br>
           <Button
-            bsStyle="btn btn-outline-info"
+            className="btn btn-outline-info"
             type="submit"
           >
-            Add Ritual
+            Update Ritual
           </Button>
         </form>
       </div>
@@ -83,10 +85,19 @@ class RitualNew extends Component {
   }
 }
 
+const mapStateToProps = (state, ownProps) => {
+  const ritual = state.rituals.find(r => r.id === +ownProps.match.params.ritualId)
+  if (ritual) {
+    return { ritual }
+  } else {
+    return { ritual: {} }
+  }
+};
+
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    createRitual
+    editRitual
   }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(RitualNew);
+export default connect(mapStateToProps, mapDispatchToProps)(RitualEdit);

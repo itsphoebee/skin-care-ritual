@@ -13,6 +13,13 @@ const addRitual = ritual => {
   }
 }
 
+const updateRitual = ritual => {
+  return {
+    type: 'UPDATE_RITUAL',
+    ritual
+  }
+}
+
 const likeRitual = ritual => {
   return {
     type: 'LIKE_RITUAL',
@@ -52,6 +59,23 @@ export function createRitual(ritual, history) {
     .then(response => response.json())
     .then(ritual => {
       dispatch(addRitual(ritual))
+      history.push(`/rituals/${ritual.id}`)
+    })
+  }
+}
+
+export function editRitual(ritual, history) {
+  return (dispatch) => {
+    return fetch(`http://localhost:3001/rituals/${ritual.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(ritual)
+    })
+    .then(response => response.json())
+    .then(ritual => {
+      dispatch(updateRitual(ritual))
       history.push(`/rituals/${ritual.id}`)
     })
   }
