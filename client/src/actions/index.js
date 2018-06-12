@@ -40,7 +40,7 @@ export function loadRituals() {
   }
 }
 
-export function createRitual(ritual) {
+export function createRitual(ritual, history) {
   return (dispatch) => {
     return fetch(`http://localhost:3001/rituals`, {
       method: 'POST',
@@ -52,6 +52,7 @@ export function createRitual(ritual) {
     .then(response => response.json())
     .then(ritual => {
       dispatch(addRitual(ritual))
+      history.push(`/rituals/${ritual.id}`)
     })
   }
 }

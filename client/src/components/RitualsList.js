@@ -6,8 +6,8 @@ const RitualsList = ({ rituals }) => {
   const renderRituals = rituals.map(r =>
     <div className="ritual" key={r.id}>
       <Link style={{ marginRight: '12px' }} to={`/rituals/${r.id}`}> {r.name}
-      <br/><br/>
-      <img className="default-photo" src={photo} width="60%" alt="default"/>
+        <br/><br/>
+        <img className="default-photo" src={photo} width="60%" alt="default"/>
       </Link>
     </div>
   );

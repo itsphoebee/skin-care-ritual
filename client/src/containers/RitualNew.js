@@ -25,8 +25,8 @@ class RitualNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const { createRitual } = this.props;
-    createRitual(this.state);
+    const { createRitual, history } = this.props;
+    createRitual(this.state, history);
   }
 
   render(){
@@ -78,19 +78,10 @@ class RitualNew extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const ritual = state.rituals.find(r => r.id === +ownProps.match.params.ritualId)
-  if (ritual) {
-    return { ritual }
-  } else {
-    return { ritual: {} }
-  }
-};
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     createRitual
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RitualNew);
+export default connect(null, mapDispatchToProps)(RitualNew);
