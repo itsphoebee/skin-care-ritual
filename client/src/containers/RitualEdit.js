@@ -26,7 +26,6 @@ class RitualEdit extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    debugger
     const { editRitual, history } = this.props;
     editRitual(this.state, history);
   }

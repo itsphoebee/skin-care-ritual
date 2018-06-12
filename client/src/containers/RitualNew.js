@@ -23,7 +23,7 @@ class RitualNew extends Component {
       });
     }
 
-  handleOnSubmit = event => {
+  handleOnSubmit = (event) => {
     event.preventDefault();
     const { createRitual, history } = this.props;
     createRitual(this.state, history);
@@ -32,7 +32,7 @@ class RitualNew extends Component {
   render(){
     return (
       <div >
-        <form onSubmit={this.handleOnSubmit.bind(this)}>
+        <form onSubmit={this.handleOnSubmit}>
           <label>
             Name:
           </label>

@@ -16,8 +16,15 @@ class RitualsPage extends Component {
   constructor(){
     super();
     this.state = {
-      search: ''
+      search: '',
+      counter: 0
     };
+  }
+
+  handleOnClick = (event) => {
+    this.setState({
+      counter: this.state.counter += 1
+    })
   }
 
   updateSearch = (event) => {
@@ -54,7 +61,7 @@ class RitualsPage extends Component {
                 />
               </div>
               <br/>
-              <RitualsList rituals={sortedRituals} />
+              <RitualsList handleOnClick={this.handleOnClick} counter={this.state.counter} rituals={sortedRituals} />
             </div>
         )}/>
           <Route path={`${match.url}/new`} component={RitualNew}/>
