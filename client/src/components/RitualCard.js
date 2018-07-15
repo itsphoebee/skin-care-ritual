@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import photo from '../adult-hand-cream-hands-1029896.jpg'
-import { Button } from 'react-bootstrap';
+import { Thumbnail, Button, Popover } from 'react-bootstrap';
 import { addDislike, addLike } from '../actions/index';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,9 +12,11 @@ class RitualCard extends Component {
     const { ritual, addLike, addDislike } = this.props
     return(
       <div className="ritual" key={ritual.id}>
-        <Link style={{ marginRight: '12px' }} to={`/rituals/${ritual.id}`}>
+        <br/>
+        <Thumbnail className="default-photo" src={photo} width="60%" alt="default">
+        <strong><Link style={{ marginRight: '12px' }} to={`/rituals/${ritual.id}`}>
           {ritual.name}
-        </Link>
+        </Link></strong>
         <br/>
         Likes: {ritual.likes}
         <br/>
@@ -32,7 +34,7 @@ class RitualCard extends Component {
         >
           Dislike
         </Button>
-        <img className="default-photo" src={photo} width="60%" alt="default"/>
+        </Thumbnail>
       </div>
     )
   }

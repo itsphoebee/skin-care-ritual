@@ -11,7 +11,7 @@ const NavBar = () => {
           <MenuItem eventKey={2.1} href="/rituals">All Rituals</MenuItem>
           <MenuItem eventKey={2.2} href="/rituals/new">New Ritual</MenuItem>
         </NavDropdown></h3>
-        <h3><NavItem eventKey={1} href="#">
+        <h3><NavItem eventKey={1} href="/about">
           About
         </NavItem></h3>
       </Navbar>
