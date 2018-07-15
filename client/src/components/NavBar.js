@@ -1,33 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 const NavBar = () => {
   return (
-    <div style={{ background: 'black', borderBottom: '2px solid black', paddingTop: '10px', paddingBottom: '10px' }}>
-      <NavLink
-        style={{ marginRight: '20px' }}
-        to="/"
-      >
-        Home
-      </NavLink>
-      <NavLink
-        style={{ marginRight: '20px' }}
-        to="/rituals"
-      >
-        Rituals
-      </NavLink>
-      <NavLink
-        style={{ marginRight: '20px' }}
-        to="/rituals/new"
-      >
-        Create Ritual
-      </NavLink>
-      <NavLink
-        style={{ marginRight: '20px' }}
-        to="/about"
-      >
-        About
-      </NavLink>
+    <div>
+      <Navbar inverse collapseOnSelect>
+        <Navbar.Header>
+          <h2><a href="/">Skincare Rituals</a></h2>
+        </Navbar.Header>
+        <h3><NavDropdown eventKey={2} title="Rituals" id="basic-nav-dropdown">
+          <MenuItem eventKey={2.1} href="/rituals">All Rituals</MenuItem>
+          <MenuItem eventKey={2.2} href="/rituals/new">New Ritual</MenuItem>
+        </NavDropdown></h3>
+        <h3><NavItem eventKey={1} href="#">
+          About
+        </NavItem></h3>
+      </Navbar>
     </div>
   );
 }

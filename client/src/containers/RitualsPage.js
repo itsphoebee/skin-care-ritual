@@ -43,6 +43,7 @@ class RitualsPage extends Component {
         <Switch>
           <Route exact path={match.url} render={() => (
             <div>
+              <br/>
               <div className="search-bar">
                 <input
                   type= "text"
