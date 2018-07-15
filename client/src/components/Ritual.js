@@ -20,14 +20,14 @@ const Ritual = ({ ritual, addLike, addDislike, editRitual }) => {
         bsSize="small"
         onClick={ () => addLike(ritual) }
       >
-      Like
+      Like <span className="glyphicon glyphicon-thumbs-up"></span>
       </Button>
       <Button
         bsStyle="danger"
         bsSize="small"
         onClick={ () => addDislike(ritual) }
       >
-      Dislike
+      Dislike <span className="glyphicon glyphicon-thumbs-down"></span>
       </Button>
       <p>{ritual.description}</p>
       <h4>Products List:</h4>

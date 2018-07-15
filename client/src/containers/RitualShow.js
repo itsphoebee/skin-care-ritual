@@ -7,20 +7,35 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 class RitualShow extends Component {
+  constructor(props){
+   super(props);
+   this.goBack = this.goBack.bind(this);
+  }
+
+  goBack = () => {
+    this.props.history.goBack();
+  }
+
   render() {
     const {ritual, addDislike, addLike} = this.props
     return(
       <div>
-      <Button
-        bsStyle="primary"
-      >
-        <Link
-          key={ritual.id}
-          to={`/rituals/${ritual.id}/edit`}
+        <Button
+          bsStyle="btn btn-outline-info pull-left"
+          onClick={this.goBack}
         >
-          <span className="glyphicon glyphicon-pencil"></span> Edit Ritual
-        </Link>
-      </Button>
+          Go Back
+        </Button>
+        <Button
+          bsStyle="primary"
+        >
+          <Link
+            key={ritual.id}
+            to={`/rituals/${ritual.id}/edit`}
+          >
+            <span className="glyphicon glyphicon-pencil"></span> Edit Ritual
+          </Link>
+        </Button>
         <Ritual editRitual={editRitual} addLike={addLike} addDislike={addDislike} ritual={ritual} />
       </div>
     )

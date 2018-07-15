@@ -14,26 +14,28 @@ class RitualCard extends Component {
       <div className="ritual" key={ritual.id}>
         <br/>
         <Thumbnail className="default-photo" src={photo} width="60%" alt="default">
-        <strong><Link style={{ marginRight: '12px' }} to={`/rituals/${ritual.id}`}>
-          {ritual.name}
-        </Link></strong>
-        <br/>
-        Likes: {ritual.likes}
-        <br/>
-        <Button
-          bsStyle="primary"
-          bsSize="small"
-          onClick={ () => addLike(ritual) }
-        >
-          Like
-        </Button>
-        <Button
-          bsStyle="danger"
-          bsSize="small"
-          onClick={ () => addDislike(ritual) }
-        >
-          Dislike
-        </Button>
+          <h4>
+            <Link style={{ marginRight: '12px' }} to={`/rituals/${ritual.id}`}>
+              {ritual.name}
+            </Link>
+          </h4>
+          <p>Likes: {ritual.likes}</p>
+          <p>
+            <Button
+              bsStyle="primary"
+              bsSize="small"
+              onClick={ () => addLike(ritual) }
+            >
+              Like <span className="glyphicon glyphicon-thumbs-up"></span>
+            </Button>
+            <Button
+              bsStyle="danger"
+              bsSize="small"
+              onClick={ () => addDislike(ritual) }
+            >
+              Dislike <span className="glyphicon glyphicon-thumbs-down"></span>
+            </Button>
+          </p>
         </Thumbnail>
       </div>
     )
