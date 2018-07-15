@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import About from './components/About';
+import NavBar from './components/NavBar';
 import RitualsPage from './containers/RitualsPage';
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <h1>SkinCare Rituals</h1>
+        <NavBar />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/rituals' component={RitualsPage} />

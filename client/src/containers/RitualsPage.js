@@ -7,7 +7,6 @@ import RitualsList from '../components/RitualsList';
 import RitualShow from '../containers/RitualShow';
 import RitualNew from '../containers/RitualNew';
 import RitualEdit from '../containers/RitualEdit';
-import NavBar from '../components/NavBar';
 
 class RitualsPage extends Component {
   componentDidMount() {
@@ -41,7 +40,6 @@ class RitualsPage extends Component {
 
     return (
       <div>
-      <NavBar />
         <Switch>
           <Route exact path={match.url} render={() => (
             <div>

@@ -26,6 +26,11 @@ ul {
     width: 50%;
 }
 
+.item img {
+  width: 100%;
+  height: 500px !important;
+}
+
 a {
   color: #00A3B6;
 }
