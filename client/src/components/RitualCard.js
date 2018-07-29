@@ -26,14 +26,14 @@ class RitualCard extends Component {
               bsSize="small"
               onClick={ () => addLike(ritual) }
             >
-              Like <span className="glyphicon glyphicon-thumbs-up"></span>
+              <span className="glyphicon glyphicon-thumbs-up"></span>
             </Button>
             <Button
               bsStyle="danger"
               bsSize="small"
               onClick={ () => addDislike(ritual) }
             >
-              Dislike <span className="glyphicon glyphicon-thumbs-down"></span>
+              <span className="glyphicon glyphicon-thumbs-down"></span>
             </Button>
           </p>
         </Thumbnail>
