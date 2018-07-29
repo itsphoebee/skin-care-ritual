@@ -20,7 +20,6 @@ class RitualsPage extends Component {
   }
 
   updateSearch = (event) => {
-    console.log(event.target.value)
     this.setState({
       search: event.target.value
     })
@@ -30,10 +29,12 @@ class RitualsPage extends Component {
     const { match, rituals } = this.props;
     let filteredRituals = rituals.filter(
       (ritual) => {
-        return ritual.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        return ritual.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+        ritual.category.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
       }
     )
 
+    console.log(filteredRituals)
     let sortedRituals = filteredRituals.sort(function(a,b) {
       return b.likes - a.likes
     })

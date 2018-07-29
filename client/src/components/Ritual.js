@@ -2,12 +2,17 @@ import React from 'react';
 import { Button, PageHeader } from 'react-bootstrap';
 
 const Ritual = ({ ritual, addLike, addDislike, editRitual }) => {
-  const renderItemList = ritual.items.map(item =>
-    <li key={item.id}><strong>{item.brand}</strong> - {item.name} - ${item.price}
-      <p>{item.description}</p>
-      <img src={item.image} width="20%" alt={item.name} />
-    </li>
-  );
+    const renderItemList = ritual.items.map(item =>
+      <div>
+        <h4>Products List:</h4>
+        <ul>
+          <li key={item.id}><strong>{item.brand}</strong> - {item.name} - ${item.price}
+            <p>{item.description}</p>
+            <img src={item.image} width="20%" alt={item.name} />
+          </li>
+        </ul>
+      </div>
+    );
 
   return (
     <div>
@@ -30,10 +35,7 @@ const Ritual = ({ ritual, addLike, addDislike, editRitual }) => {
       Dislike <span className="glyphicon glyphicon-thumbs-down"></span>
       </Button>
       <p>{ritual.description}</p>
-      <h4>Products List:</h4>
-      <ul>
         {renderItemList}
-      </ul>
     </div>
   );
 };
