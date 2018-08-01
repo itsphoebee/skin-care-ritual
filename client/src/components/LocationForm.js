@@ -1,12 +1,11 @@
 import React from "react";
 
-const LocationForm = () => {
+const LocationForm = (props) => {
   return (
-    <form>
+    <form onSubmit={props.getWeather}>
       <input type="text" name="city" placeholder="Enter city here"/>
       <input type="text" name="country" placeholder="Enter country here"/>
       <button>
-      //onClick = get the weather
         Get Suggestions
       </button>
     </form>
