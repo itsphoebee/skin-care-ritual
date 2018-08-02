@@ -41,7 +41,7 @@ class Tracker extends Component {
           <LocationForm getWeather={this.getWeather}/>
         </div>
         <div className="results">
-          <h3>Location: {this.state.city}, {this.state.country}</h3>
+          <h3>Location: {this.state.city} {this.state.country}</h3>
           <h4>Temperature: {this.state.temperature} </h4>
           <h4>Humidity: {this.state.humidity} </h4>
           <h4>Wind: {this.state.wind} </h4>
